@@ -87,8 +87,33 @@ const router = express.Router();
  *          description: internal serevr error
  */
 
-// routes
+// Register | Post
 router.post('/register', limiter, registerController);
+
+/**
+ * @swagger
+ * /api/v1/auth/login:
+ *  post:
+ *    summary: login page
+ *    tags: [Auth]
+ *    requestBody:
+ *      required: true
+ *      content:
+ *        application/json:
+ *          schema:
+ *            $ref: '#/components/schemas/User'
+ *    responses:
+ *      200:
+ *        description: login successfull
+ *        content:
+ *          application/json:
+ *            schema:
+ *              $ref: '#/components/schemas/User'
+ *      500:
+ *        description: something went wrong
+ */
+
+// Login | Post
 router.post('/login', limiter, loginController);
 
 // export
